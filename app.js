@@ -30,11 +30,6 @@ app.get('/video/:videoId', function(req, res) {
 	})
 })
 
-app.listen(3000)
-
-/*
-title:
-video_url:
-views:
-date:
-*/
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Everything's running on %d in %s mode", this.address().port, app.settings.env);
+});
