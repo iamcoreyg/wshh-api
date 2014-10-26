@@ -1,0 +1,11 @@
+{
+  "name": "wshh-api",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "cheerio": "^0.17.0",
+    "express": "^4.10.0",
+    "scrape": "^0.2.3",
+  }
+}
