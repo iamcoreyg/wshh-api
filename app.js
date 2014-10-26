@@ -3,10 +3,11 @@ var express = require('express')
 var scrape = require('scrape');
 var app = express()
 
+app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-  res.send('Worldstar Hip Hop Api, try out /video/VIDEO_ID_HERE')
-})
+app.get('/', function(req, res){
+	res.status(200).sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.get('/video/:videoId', function(req, res) {
 	var url = 'http://www.worldstarhiphop.com/videos/video.php?v=' + req.params.videoId

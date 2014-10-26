@@ -1,9 +1,35 @@
 <!doctype html>
 <html>
 <head>
-<title>Unofficial Worldstar API!</title>
+	<title>Unofficial Worldstar API!</title>
+	<link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
-	To use this api, send a POST request to wshh-api.herokuapp.com/video/VIDEO_ID_HERE
+	<div class="wrap">
+		<h1>(Unoffical) WorldStarHipHop API</h1>
+		<p>To use this api, send a GET request to:</p>
+		
+		<pre>wshh-api.herokuapp.com/video/VIDEO_ID_HERE</pre>
+		
+		<p>Currently, you're only able to get information about a single video. Expect a JSON response that provides the title, video url, number of views, and upload date as such:</p>
+
+<pre><code class="json">
+{
+"status":"ok",
+"title":"Throwback Of The Week: A Young Vin Diesel Break Dancing In The 80's",
+"video_url":"http://www.worldstarhiphop.com/videos/video.php?v=wshhWj74x1979C13t0q4",
+"views":"407,862 views",
+"date":"Uploaded July 31, 2014"
+}
+</code>
+</pre>
+
+		<footer>
+			<p>Built by <a href="http://iamcoreyg.com">Corey G</a> | <a target="_blank" href="http://www.worldstarhiphop.com/videos/">WorldStarHipHop</a></p>
+		</footer>
+
+	</div>
+
+
 </body>
 </html>
