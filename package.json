@@ -6,6 +6,6 @@
   "dependencies": {
     "cheerio": "^0.17.0",
     "express": "^4.10.0",
-    "scrape": "^0.2.3",
+    "scrape": "^0.2.3"
   }
 }
