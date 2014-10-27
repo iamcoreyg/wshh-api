@@ -1,6 +1,6 @@
 var cheerio = require('cheerio')
 var express = require('express')
-var scrape = require('scrape');
+var request = require('request');
 var app = express()
 
 app.use(express.static('public'));
@@ -12,23 +12,32 @@ app.get('/', function(req, res){
 app.get('/video/:videoId', function(req, res) {
 	var url = 'http://www.worldstarhiphop.com/videos/video.php?v=' + req.params.videoId
 
-	scrape.request(url, function (err, $) {
-	    if (err) return console.error(err);
+	var err = [];
+	request(url, function(err, resp, body){
+		var $ = cheerio.load(body);
+		var wrapper = $('#wrapper')
 
-	    var wrapper = $('#wrapper')
-	    var title = wrapper.find('.content-heading h1').first().text,
-	    	views = wrapper.find('.watch-view-count').first().text
-	    	date = wrapper.find('.date').first().text
+		var title = wrapper.find('.content-heading h1').first().text(),
+		    	views = wrapper.find('.watch-view-count').first().text()
+		    	date = wrapper.find('.date').first().text()
 
-	    res.status(200).json({
+		if(title.length == 0){
+			res.status(500).json({
+				status: "Error",
+				message: "Yo..the video wasn't found. Sorry."
+			});
+		} else {
+
+			res.status(200).json({
 				status: 'ok', 
 				title: title,
 				video_url: url,
 				views: views,
 				date: date
 			});
+		}
+	}) 
 
-	})
 })
 
 app.listen(process.env.PORT || 3000, function(){

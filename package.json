@@ -9,13 +9,14 @@
   "scripts": {
     "start": "node app.js"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/iamcoreyg/wshh-api"
   },
   "dependencies": {
     "cheerio": "^0.17.0",
     "express": "^4.10.0",
+    "request": "^2.46.0",
     "scrape": "^0.2.3"
   }
 }
